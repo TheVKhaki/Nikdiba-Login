@@ -1,22 +1,26 @@
-import axios from "axios";
-import { motion } from "framer-motion";
 import React, { useState } from "react";
+import axios from "axios";
 import { Link, useHistory } from "react-router-dom";
+//Animation
+import { motion } from "framer-motion";
 import { pageAnimationLogin } from "../animation";
 
 function Login(props) {
   const urlPost = "https://api-test.nikdiba.com/nikdiba/api/test/login";
   const history = useHistory();
+  //save data Login
   const [data, setData] = useState({
     captcha: "string",
     mobile: "",
     password: "12345678",
   });
+  //get value inp
   function inpChange(e) {
     const newData = { ...data };
     newData[e.target.id] = e.target.value;
     setData(newData);
   }
+  //Form submit and send data
   async function formSub(e) {
     e.preventDefault();
     const danger = document.querySelector(".danger");
@@ -32,6 +36,7 @@ function Login(props) {
         password: data.password,
       },
     })
+      //success
       .then((res) => {
         danger.classList.remove("show");
         history.push("userpanel");
@@ -43,6 +48,7 @@ function Login(props) {
         props.setPanelData(newPanelData);
         console.log(newPanelData);
       })
+      //error
       .catch((res) => {
         danger.classList.add("show");
       });

@@ -1,3 +1,4 @@
+//Global Style
 *{
     margin: 0;
     padding: 0;
@@ -12,6 +13,7 @@ body{
     min-height: 100vh;
     overflow: hidden
 }
+//Font IRANSANS
 @font-face {
 	font-family: IRANSans;
 	font-style: normal;
@@ -32,5 +34,6 @@ body{
 	src: url('../fonts/IRANSANS/IRANSansWeb_Light.woff2') format('woff2')
 
 }
+//Import Css
 @import './signlogin';
 @import './userpanel';

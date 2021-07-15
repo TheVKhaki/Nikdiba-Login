@@ -152,3 +152,10 @@ text-decoration: none;
     .show{
         display: block;
     }
+    // media query
+
+    @media screen and (max-width: 417px){ 
+        .sign-login-card{
+            width: 95vw;
+        }
+    }

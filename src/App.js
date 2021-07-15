@@ -1,12 +1,16 @@
 import React, { useState } from "react";
 import { Switch, Route, useLocation } from "react-router-dom";
+//Style Css
 import "./styles/app.scss";
+//Pages
 import SignUp from "./pages/SignUp";
 import Login from "./pages/Login";
 import UserPanel from "./pages/UserPanel";
+//PageTransform
 import { AnimatePresence } from "framer-motion";
 function App() {
   const location = useLocation();
+  //Data for UserPanel
   const [panelData, setPanelData] = useState({
     email: "",
     name: "",

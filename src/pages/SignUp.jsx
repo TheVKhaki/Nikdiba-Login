@@ -1,22 +1,27 @@
-import axios from "axios";
-import { motion } from "framer-motion";
 import React, { useState } from "react";
+import axios from "axios";
 import { Link } from "react-router-dom";
+//Animation
 import { pageAnimationSign } from "../animation";
+import { motion } from "framer-motion";
+
 function SignUp() {
   const urlPost = "https://api-test.nikdiba.com/nikdiba/api/test/register";
   const msgsuccess = document.querySelector(".msg-success");
+  //save data Sign up
   const [data, setData] = useState({
     name: "",
     email: "",
     mobile: "",
     password: "12345678",
   });
+  //get value inp
   function inpChange(e) {
     const newData = { ...data };
     newData[e.target.id] = e.target.value;
     setData(newData);
   }
+  // Form submit and send data
   async function formSub(e) {
     e.preventDefault();
     const msgdanger = document.querySelector(".danger p");
@@ -34,10 +39,12 @@ function SignUp() {
         password: data.password,
       },
     })
+      //success
       .then((res) => {
         danger.classList.remove("show");
         msgsuccess.classList.add("msg-success-show");
       })
+      //error
       .catch((err) => {
         console.log(err.response);
         if (err.response.data.errors) {
