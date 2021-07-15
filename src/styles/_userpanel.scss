@@ -1,0 +1,38 @@
+.user-panel{
+    display: flex;
+    min-height: 100vh;
+    justify-content: center;
+    align-items: center;
+}
+.user-panel-card{
+    width: 650px;
+    padding: 10px 30px;
+    background-color: #fff;
+    height: 500px;
+    .form-input{
+        pointer-events: none;
+        user-select: none;
+    }
+    h2{
+        padding: 20px 0;
+        font-size: 2.6rem;
+        border-bottom: 1px solid silver;
+    }
+    a{
+        margin-top: 5rem;
+        padding: 10px 20px;
+        cursor: pointer;
+        display: inline-block;
+        background: transparent;
+        text-decoration: none;
+        border: 4px solid #e00404;
+        transition: all 0.5s;
+        border-radius: 10px;
+        &:hover{
+            background-color: #393185;
+            color: #fff;
+            border-color: #fff;
+        }
+    }
+
+}

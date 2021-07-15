@@ -1,23 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
-
+import React, { useState } from "react";
+import { Switch, Route, useLocation } from "react-router-dom";
+import "./styles/app.scss";
+import SignUp from "./pages/SignUp";
+import Login from "./pages/Login";
+import UserPanel from "./pages/UserPanel";
+import { AnimatePresence } from "framer-motion";
 function App() {
+  const location = useLocation();
+  const [panelData, setPanelData] = useState({
+    email: "",
+    name: "",
+    mobile: "",
+    id: 0,
+    password: "12345678",
+  });
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <AnimatePresence exitBeforeEnter>
+        <Switch location={location} key={location.pathname}>
+          <Route path="/" exact>
+            <Login panelData={panelData} setPanelData={setPanelData} />
+          </Route>
+          <Route path="/signup">
+            <SignUp />
+          </Route>
+          <Route path="/userpanel">
+            <UserPanel panelData={panelData} setPanelData={setPanelData} />
+          </Route>
+        </Switch>
+      </AnimatePresence>
     </div>
   );
 }
